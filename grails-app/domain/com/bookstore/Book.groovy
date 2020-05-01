@@ -11,9 +11,13 @@ class Book {
     Date dateCreated
     Date lastUpdated
 
-    static belongsTo = [author:Author]
+    static belongsTo = [author: Author]
 
     static constraints = {
         description nullable: true
+    }
+
+    String toString() {
+        "[title: $title, price: $price]"
     }
 }

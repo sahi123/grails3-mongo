@@ -95,6 +95,18 @@ class BookController {
         }
     }
 
+    def test(Long id){
+        println params
+        println params.long('id')
+        println Author.findById(params.long('id')).books*.properties
+        println Author.get(params.long('id')).properties
+        println Book.list().sort {it.author.name}.collect{[title:it.title,author:it.author]}
+        println  Book.read(id)?.properties
+        println  "\n\n" +  Book.load(id)?.properties
+        println  "\n\n" +  Author.get(params.long('id')).properties
+        render Book.list().sort {it.author.name}.collect{[title:it.title,author:it.author]}
+    }
+
     protected void notFound() {
         request.withFormat {
             form multipartForm {

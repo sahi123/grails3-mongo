@@ -7,4 +7,8 @@ class Author {
 
     static hasMany = [books: Book]
 
+
+    String toString(){
+        "[name: $name, country: $country]"
+    }
 }
